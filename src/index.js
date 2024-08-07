@@ -1,15 +1,22 @@
-// Load environment variables from .env file
-require('dotenv').config();
-
+// src/app.js
 const express = require('express');
+const bodyParser = require('body-parser');
+const connectDB = require('./config/database');
+const presentationRoutes = require('./routes/presentationRoutes');
+
 const app = express();
 
+// Connect to the database
+connectDB();
+
+// Middleware
+app.use(bodyParser.json());
+
+// Routes
+app.use('/api', presentationRoutes);
+
 const PORT = process.env.PORT || 3000;
-
-app.get('/', (req, res) => {
-  res.send('Hello, World!');
-});
-
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
+
