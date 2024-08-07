@@ -17,8 +17,11 @@ designed to showcase proficiency in building RESTful APIs.
 Ensure you have the following installed:
 
 Node.js (v14 or higher)
+
 npm or yarn
 
 #bash
+
 clone  https://github.com/itay601/Backend_Express.git
+
 node src/index.js
